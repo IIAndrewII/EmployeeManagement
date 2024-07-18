@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserService } from 'src/app/services/user.service';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-user-detail',
@@ -8,28 +8,17 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./user-detail.component.css']
 })
 export class UserDetailComponent implements OnInit {
-  user: any = {};
+  user: any;
 
-  constructor(private userService: UserService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
-  ngOnInit() {
-    const id = +this.route.snapshot.paramMap.get('id');
-    if (id) {
-      this.userService.getUserById(id).subscribe(user => {
-        this.user = user;
+  ngOnInit(): void {
+    const userId = this.route.snapshot.paramMap.get('id');
+    this.http.get<any>(`http://localhost:5000/api/users/${userId}`)
+      .subscribe(data => {
+        this.user = data;
+      }, error => {
+        alert('Failed to fetch user details');
       });
-    }
-  }
-
-  onSubmit() {
-    if (this.user.id) {
-      this.userService.updateUser(this.user.id, this.user).subscribe(() => {
-        this.router.navigate(['/users']);
-      });
-    } else {
-      this.userService.addUser(this.user).subscribe(() => {
-        this.router.navigate(['/users']);
-      });
-    }
   }
 }

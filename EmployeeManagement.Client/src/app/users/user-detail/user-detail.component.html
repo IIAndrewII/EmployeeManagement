@@ -1,24 +1,8 @@
-<h2>User Details</h2>
-<form (submit)="onSubmit()">
-    <div>
-        <label>Name</label>
-        <input type="text" [(ngModel)]="user.name" name="name" required>
-    </div>
-    <div>
-        <label>Email</label>
-        <input type="email" [(ngModel)]="user.email" name="email" required>
-    </div>
-    <div>
-        <label>Phone Number</label>
-        <input type="text" [(ngModel)]="user.phoneNumber" name="phoneNumber" required>
-    </div>
-    <div>
-        <label>Address</label>
-        <input type="text" [(ngModel)]="user.address" name="address" required>
-    </div>
-    <div>
-        <label>Sub-Section</label>
-        <input type="number" [(ngModel)]="user.subSectionId" name="subSectionId" required>
-    </div>
-    <button type="submit">Save</button>
-</form>
+<mat-card *ngIf="user">
+    <mat-card-title>{{ user.name }}</mat-card-title>
+    <mat-card-content>
+        <p>Email: {{ user.email }}</p>
+        <p>Phone: {{ user.phoneNumber }}</p>
+        <p>Address: {{ user.address }}</p>
+    </mat-card-content>
+</mat-card>

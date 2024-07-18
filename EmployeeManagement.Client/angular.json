@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/client-stock-app.client",
+            "outputPath": "dist/employee-management.client",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ClientStockApp.Client:build:production"
+              "browserTarget": "EmployeeManagement.Client:build:production"
             },
             "development": {
-              "browserTarget": "ClientStockApp.Client:build:development"
+              "browserTarget": "EmployeeManagement.Client:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +83,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ClientStockApp.Client:build"
+            "browserTarget": "EmployeeManagement.Client:build"
           }
         },
         "test": {
@@ -110,5 +110,5 @@
       }
     }
   },
-  "defaultProject": "ClientStockApp.Client"
+  "defaultProject": "EmployeeManagement.Client"
 }

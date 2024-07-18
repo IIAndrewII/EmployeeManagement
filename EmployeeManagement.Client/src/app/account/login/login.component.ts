@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
@@ -8,15 +8,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  email: string;
-  password: string;
+  email: string = '';
+  password: string = '';
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
-  onSubmit() {
-    this.authService.login({ email: this.email, password: this.password }).subscribe(response => {
-      localStorage.setItem('token', response.token);
-      this.router.navigate(['/users']);
-    });
+  login() {
+    this.http.post<any>('http://localhost:5000/api/account/login', { email: this.email, password: this.password })
+      .subscribe(response => {
+        localStorage.setItem('session_token', response.token);
+        this.router.navigate(['/users']);
+      }, error => {
+        alert('Login failed');
+      });
   }
 }
