@@ -1,0 +1,11 @@
+<div>
+    <h2>Departments</h2>
+    <div *ngFor="let department of departments">
+        <input type="text" [(ngModel)]="department.name">
+        <button (click)="updateDepartment(department)">Update</button>
+    </div>
+    <div>
+        <input type="text" [(ngModel)]="newDepartment.name" placeholder="New Department">
+        <button (click)="addDepartment()">Add</button>
+    </div>
+</div>

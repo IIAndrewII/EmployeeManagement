@@ -1,0 +1,17 @@
+<div>
+    <h2>Sections</h2>
+    <div *ngFor="let section of sections">
+        <input type="text" [(ngModel)]="section.name">
+        <select [(ngModel)]="section.departmentId">
+            <option *ngFor="let department of departments" [value]="department.id">{{ department.name }}</option>
+        </select>
+        <button (click)="updateSection(section)">Update</button>
+    </div>
+    <div>
+        <input type="text" [(ngModel)]="newSection.name" placeholder="New Section">
+        <select [(ngModel)]="newSection.departmentId">
+            <option *ngFor="let department of departments" [value]="department.id">{{ department.name }}</option>
+        </select>
+        <button (click)="addSection()">Add</button>
+    </div>
+</div>
