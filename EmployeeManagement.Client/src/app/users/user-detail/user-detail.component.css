@@ -1,0 +1,33 @@
+
+/* user-detail.component.css */
+
+/* Style the user detail container */
+.container {
+  margin-top: 20px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/* Style the form inputs */
+.form-input {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Style the update button */
+.btn-update {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+  .btn-update:hover {
+    background-color: #45a049;
+  }
