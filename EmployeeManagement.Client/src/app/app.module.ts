@@ -1,41 +1,42 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
-import { KendoUIModule } from './kendo-ui/kendo-ui.module';
+import { HttpClientModule } from '@angular/common/http';
+import { JwtModule } from '@auth0/angular-jwt';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ClientListComponent } from './components/client-list/client-list.component';
-import { ClientFormComponent } from './components/client-form/client-form.component';
-import { StockMarketComponent } from './components/stock-market/stock-market.component';
-import { ClientService } from './services/client.service';
-import { StockMarketService } from './services/stock-market.service';
-import { ClientEditFormComponent } from './components/client-edit-form/client-edit-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './account/login/login.component';
+import { RegisterComponent } from './account/register/register.component';
+import { UserListComponent } from './users/user-list/user-list.component';
+import { UserDetailComponent } from './users/user-detail/user-detail.component';
+
+export function tokenGetter() {
+  return localStorage.getItem('token');
+}
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientListComponent,
-    ClientFormComponent,
-    StockMarketComponent,
-    ClientEditFormComponent
+    LoginComponent,
+    RegisterComponent,
+    UserListComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
     FormsModule,
-    MatToolbarModule,
-    MatButtonModule,
-    KendoUIModule,
-    ReactiveFormsModule,
-    AppRoutingModule
+    HttpClientModule,
+    AppRoutingModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter,
+        allowedDomains: ['your-api-endpoint'],
+        disallowedRoutes: ['your-api-endpoint/api/account/login']
+      }
+    })
   ],
-  providers: [ClientService, StockMarketService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
