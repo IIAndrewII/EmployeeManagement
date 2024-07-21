@@ -20,6 +20,12 @@ import { SectionComponent } from './pages/section/section.component';
 import { SubsectionComponent } from './pages/subsection/subsection.component';
 import { ToolbarComponent } from './shared/toolbar/toolbar.component';
 import { EmployeesComponent } from './pages/employees/employees.component';
+import { EditEmployeeComponent } from './pages/edit-employee/edit-employee.component';
+import { AboutEmployeeComponent } from './pages/about-employee/about-employee.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms'; // For ngModel
+import { MatCardModule } from '@angular/material/card';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +37,10 @@ import { EmployeesComponent } from './pages/employees/employees.component';
     SectionComponent,
     SubsectionComponent,
     ToolbarComponent,
-    EmployeesComponent
+    EmployeesComponent,
+    EditEmployeeComponent,
+    AboutEmployeeComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -45,7 +54,19 @@ import { EmployeesComponent } from './pages/employees/employees.component';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    BrowserModule,
+    FormsModule,
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    BrowserAnimationsModule
+
+
+
+
+    
     
   ],
   providers: [],

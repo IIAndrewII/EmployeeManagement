@@ -8,20 +8,24 @@ import { environment } from '../../environments/environment';
 })
 export class EmployeeService {
   private apiUrl = `${environment.apiUrl}/Users`;
-  private token: string | null = localStorage.getItem('token'); // Get the token from local storage
 
   constructor(private http: HttpClient) {}
 
   private getHeaders(): HttpHeaders {
     let headers = new HttpHeaders();
-    if (this.token) {
-      headers = headers.append('Authorization', `Bearer ${this.token}`);
+    const token = localStorage.getItem('token');
+    if (token) {
+      headers = headers.append('Authorization', `Bearer ${token}`);
     }
     return headers;
   }
 
   getAllEmployees(): Observable<any[]> {
     return this.http.get<any[]>(this.apiUrl, { headers: this.getHeaders() });
+  }
+
+  getEmployee(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
   }
 
   addEmployee(employee: any): Observable<any> {

@@ -25,7 +25,7 @@ export class LoginComponent {
   onSubmit(): void {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe(
-        () => this.router.navigate(['/sections']),
+        () => this.router.navigate(['/employees']),
         error => alert('Login failed')
       );
     }

@@ -4,6 +4,8 @@ namespace EmployeeManagement.Application.DTOs
 {
     public class UserDto
     {
+        public int? ID { get; set; }
+
         [Required]
         [StringLength(100)]
         public string Name { get; set; }

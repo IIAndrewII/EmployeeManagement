@@ -1,0 +1,33 @@
+<div class="register-container">
+    <form (ngSubmit)="updateEmployee()">
+      <h2>Edit Employee</h2>
+      <div>
+        <label for="name">Name:</label>
+        <input id="name" [(ngModel)]="employee.name" name="name" required>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input id="email" type="email" [(ngModel)]="employee.email" name="email" required>
+      </div>
+      <div>
+        <label for="phoneNumber">Phone Number:</label>
+        <input id="phoneNumber" [(ngModel)]="employee.phoneNumber" name="phoneNumber" required>
+      </div>
+      <div>
+        <label for="address">Address:</label>
+        <input id="address" [(ngModel)]="employee.address" name="address">
+      </div>
+      <div>
+        <label for="subSectionId">Sub-Section:</label>
+        <input id="subSectionId" [(ngModel)]="employee.subSectionId" name="subSectionId" type="number">
+      </div>
+      <div>
+        <label for="role">Role:</label>
+        <input id="role" [(ngModel)]="employee.role" name="role" required>
+      </div>
+      <div>
+        <button type="submit">Update</button>
+      </div>
+    </form>
+  </div>
+  

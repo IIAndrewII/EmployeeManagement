@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router'; // Import Router
 import { EmployeeService } from '../../services/employee.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class EmployeesComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(private employeeService: EmployeeService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadEmployees();
@@ -38,7 +39,11 @@ export class EmployeesComponent implements OnInit {
   }
 
   editEmployee(employee: any): void {
-    // Implement edit functionality
+    this.router.navigate(['/edit-employee', employee.id]);
+  }
+
+  aboutEmployee(employee: any): void {
+    this.router.navigate(['/about-employee', employee.id]);
   }
 
   deleteEmployee(id: number): void {
@@ -46,4 +51,8 @@ export class EmployeesComponent implements OnInit {
       this.loadEmployees();
     });
   }
+
+navigateToRegister(): void {
+  this.router.navigate(['/register']); // Update the path as needed
+}
 }

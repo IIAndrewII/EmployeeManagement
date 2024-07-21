@@ -1,13 +1,20 @@
-.employees {
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1em;
+  }
+  
+  mat-card {
     padding: 20px;
   }
   
-  ul {
-    list-style: none;
-    padding: 0;
+  .add-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
   }
   
-  li {
-    margin: 10px 0;
+  button {
+    margin-right: 10px;
   }
   
