@@ -1,0 +1,31 @@
+<div class="register-container">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <h2>Register</h2>
+      <div>
+        <label for="name">Name:</label>
+        <input id="name" formControlName="name" type="text" required>
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input id="email" formControlName="email" type="email" required>
+      </div>
+      <div>
+        <label for="phoneNumber">Phone Number:</label>
+        <input id="phoneNumber" formControlName="phoneNumber" type="text" required>
+      </div>
+      <div>
+        <label for="address">Address:</label>
+        <input id="address" formControlName="address" type="text">
+      </div>
+      <div>
+        <label for="SubSectionId">Sub-Section:</label>
+        <input id="SubSectionId" formControlName="SubSectionId" type="number" required>
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input id="password" formControlName="password" type="password" required>
+      </div>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+  

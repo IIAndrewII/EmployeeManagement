@@ -19,7 +19,7 @@ namespace EmployeeManagement.Application.DTOs
         [DataType(DataType.Password)]
         public string Password { get; set; }
 
-        public string Address { get; set; }
+        public string? Address { get; set; }
 
         [Required]
         public int SubSectionId { get; set; }

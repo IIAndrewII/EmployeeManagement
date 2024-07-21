@@ -1,0 +1,62 @@
+/* Toolbar container */
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #0f83dc; /* Dark gray background */
+  color: #ffffff; /* White text color */
+  border-bottom: 1px solid #495057; /* Slightly lighter gray border */
+}
+
+/* Left navigation links */
+.nav-left a {
+  margin: 0 15px;
+  text-decoration: none;
+  color: #ffffff; /* White text color */
+  font-weight: bold; /* Bold font */
+}
+
+.nav-left a:hover {
+  text-decoration: underline;
+  color: #adb5bd; /* Light gray color on hover */
+}
+
+/* Right navigation links */
+.nav-right ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.nav-right li {
+  margin-left: 15px;
+}
+
+.nav-right a {
+  text-decoration: none;
+  color: #ffffff; /* White text color */
+  font-weight: bold; /* Bold font */
+}
+
+.nav-right a:hover {
+  text-decoration: underline;
+  color: #adb5bd; /* Light gray color on hover */
+}
+
+.nav-right button {
+  background: none;
+  border: none;
+  color: #ffffff; /* White text color */
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: bold; /* Bold font */
+  margin-left: 15px;
+}
+
+.nav-right button:hover {
+  text-decoration: underline;
+  color: #adb5bd; /* Light gray color on hover */
+}

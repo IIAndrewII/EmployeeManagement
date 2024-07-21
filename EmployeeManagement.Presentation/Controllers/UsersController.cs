@@ -29,8 +29,6 @@ namespace EmployeeManagement.Presentation.Controllers
             return Ok(user);
         }
 
-
-
         [HttpGet]
         public async Task<ActionResult<IEnumerable<User>>> GetAllUsers()
         {
@@ -76,6 +74,7 @@ namespace EmployeeManagement.Presentation.Controllers
             await _userService.UpdateUserAsync(user);
             return NoContent();
         }
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUser(int id)
         {

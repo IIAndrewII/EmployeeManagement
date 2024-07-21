@@ -1,0 +1,22 @@
+<nav class="toolbar">
+  <div class="nav-left">
+    <a routerLink="/departments">Departments</a>
+    <a routerLink="/sections">Sections</a>
+    <a routerLink="/subsections">Sub-Sections</a>
+    <a routerLink="/employees">Employees</a>
+  </div>
+
+  <div class="nav-right">
+    <ul>
+      <li *ngIf="!isAuthenticated">
+        <a routerLink="/login">Login</a>
+      </li>
+      <li *ngIf="!isAuthenticated">
+        <a routerLink="/register">Register</a>
+      </li>
+      <li *ngIf="isAuthenticated">
+        <a (click)="toggleAuth()">Logout</a>
+      </li>
+    </ul>
+  </div>
+</nav>
