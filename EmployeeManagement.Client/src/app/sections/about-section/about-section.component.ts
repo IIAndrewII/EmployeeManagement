@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SectionService } from '../../services/section.service';
+import { DepartmentService } from '../../services/department.service';
 
 @Component({
   selector: 'app-about-section',
@@ -9,10 +10,12 @@ import { SectionService } from '../../services/section.service';
 })
 export class AboutSectionComponent implements OnInit {
   section: any = {};
+  department: any = {};
 
   constructor(
     private route: ActivatedRoute,
-    private sectionService: SectionService
+    private sectionService: SectionService,
+    private departmentService: DepartmentService
   ) {}
 
   ngOnInit(): void {
@@ -20,7 +23,14 @@ export class AboutSectionComponent implements OnInit {
     if (id) {
       this.sectionService.getSection(+id).subscribe(data => {
         this.section = data;
+        this.loadRelatedEntity(this.section.departmentId);
       });
     }
+  }
+
+  loadRelatedEntity(departmentId: number): void {
+    this.departmentService.getDepartment(departmentId).subscribe(departmentData => {
+      this.department = departmentData;
+    });
   }
 }

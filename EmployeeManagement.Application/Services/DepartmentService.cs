@@ -30,7 +30,7 @@ namespace EmployeeManagement.Application.Services
 
         public async Task UpdateDepartmentAsync(Department department)
         {
-            _unitOfWork.Departments.UpdateDepartmentAsync(department);
+            await _unitOfWork.Departments.UpdateDepartmentAsync(department);
             await _unitOfWork.CompleteAsync();
         }
 

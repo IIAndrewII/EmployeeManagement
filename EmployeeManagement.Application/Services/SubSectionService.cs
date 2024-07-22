@@ -30,7 +30,7 @@ namespace EmployeeManagement.Application.Services
 
         public async Task UpdateSubSectionAsync(SubSection subSection)
         {
-            _unitOfWork.SubSections.UpdateSubSectionAsync(subSection);
+            await _unitOfWork.SubSections.UpdateSubSectionAsync(subSection);
             await _unitOfWork.CompleteAsync();
         }
 

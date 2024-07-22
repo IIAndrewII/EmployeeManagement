@@ -1,13 +1,18 @@
 <div class="register-container">
-    <form (ngSubmit)="addSection()">
-      <h2>Add Section</h2>
-      <div>
-        <label for="name">Name:</label>
-        <input id="name" [(ngModel)]="section.name" name="name" required>
-      </div>
-      <div>
-        <button type="submit">Add</button>
-      </div>
-    </form>
-  </div>
-  
+  <form (ngSubmit)="addSection()">
+    <h2>Add Section</h2>
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" [(ngModel)]="section.name" name="name" required>
+    </div>
+    <div>
+      <label for="departmentId">Department:</label>
+      <select id="departmentId" [(ngModel)]="section.departmentId" name="departmentId">
+        <option *ngFor="let department of departments" [value]="department.id">{{ department.name }}</option>
+      </select>
+    </div>
+    <div>
+      <button type="submit">Add</button>
+    </div>
+  </form>
+</div>

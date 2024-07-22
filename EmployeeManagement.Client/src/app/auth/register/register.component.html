@@ -1,31 +1,41 @@
 <div class="register-container">
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-      <h2>New User</h2>
-      <div>
-        <label for="name">Name:</label>
-        <input id="name" formControlName="name" type="text" required>
-      </div>
-      <div>
-        <label for="email">Email:</label>
-        <input id="email" formControlName="email" type="email" required>
-      </div>
-      <div>
-        <label for="phoneNumber">Phone Number:</label>
-        <input id="phoneNumber" formControlName="phoneNumber" type="text" required>
-      </div>
-      <div>
-        <label for="address">Address:</label>
-        <input id="address" formControlName="address" type="text">
-      </div>
-      <div>
-        <label for="SubSectionId">Sub-Section:</label>
-        <input id="SubSectionId" formControlName="SubSectionId" type="number" required>
-      </div>
-      <div>
-        <label for="password">Password:</label>
-        <input id="password" formControlName="password" type="password" required>
-      </div>
-      <button type="submit">Register</button>
-    </form>
-  </div>
-  
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <h2>Register</h2>
+    <div>
+      <label for="name">Name:</label>
+      <input id="name" formControlName="name" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email" required>
+    </div>
+    <div>
+      <label for="phoneNumber">Phone Number:</label>
+      <input id="phoneNumber" formControlName="phoneNumber" required>
+    </div>
+    <div>
+      <label for="address">Address:</label>
+      <input id="address" formControlName="address">
+    </div>
+    <div>
+      <label for="subSectionId">Sub-Section:</label>
+      <select id="subSectionId" formControlName="subSectionId" required>
+        <option *ngFor="let subSection of subSections" [value]="subSection.id">{{subSection.name}}</option>
+      </select>
+    </div>
+    <div>
+      <label for="role">Role:</label>
+      <select id="role" formControlName="role" required>
+        <option value="Admin">Admin</option>
+        <option value="User">User</option>
+      </select>
+    </div>
+    <div>
+      <label for="password">Password:</label>
+      <input id="password" type="password" formControlName="password" required>
+    </div>
+    <div>
+      <button type="submit" [disabled]="registerForm.invalid">Register</button>
+    </div>
+  </form>
+</div>

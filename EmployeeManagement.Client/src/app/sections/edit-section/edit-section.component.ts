@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SectionService } from '../../services/section.service';
+import { DepartmentService } from '../../services/department.service';
 
 @Component({
   selector: 'app-edit-section',
@@ -9,10 +10,12 @@ import { SectionService } from '../../services/section.service';
 })
 export class EditSectionComponent implements OnInit {
   section: any = {};
+  departments: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private sectionService: SectionService,
+    private departmentService: DepartmentService,
     private router: Router
   ) {}
 
@@ -21,6 +24,9 @@ export class EditSectionComponent implements OnInit {
     if (id) {
       this.sectionService.getSection(+id).subscribe(data => {
         this.section = data;
+      });
+      this.departmentService.getDepartments().subscribe(data => {
+        this.departments = data;
       });
     }
   }

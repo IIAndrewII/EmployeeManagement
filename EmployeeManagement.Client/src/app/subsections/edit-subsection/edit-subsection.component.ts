@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SubSectionService } from '../../services/subsection.service';
+import { SectionService } from '../../services/section.service';
 
 @Component({
   selector: 'app-edit-subsection',
@@ -9,10 +10,12 @@ import { SubSectionService } from '../../services/subsection.service';
 })
 export class EditSubSectionComponent implements OnInit {
   subSection: any = {};
+  sections: any[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private subSectionService: SubSectionService,
+    private sectionService: SectionService,
     private router: Router
   ) {}
 
@@ -21,6 +24,9 @@ export class EditSubSectionComponent implements OnInit {
     if (id) {
       this.subSectionService.getSubSection(+id).subscribe(data => {
         this.subSection = data;
+      });
+      this.sectionService.getAllSections().subscribe(data => {
+        this.sections = data;
       });
     }
   }
