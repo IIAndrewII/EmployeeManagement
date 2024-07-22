@@ -1,7 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Router } from '@angular/router'; // Import Router
+import { Router } from '@angular/router';
 import { EmployeeService } from '../../services/employee.service';
 
 @Component({
@@ -53,6 +53,6 @@ export class EmployeesComponent implements OnInit {
   }
 
 navigateToRegister(): void {
-  this.router.navigate(['/register']); // Update the path as needed
+  this.router.navigate(['/register']); 
 }
 }

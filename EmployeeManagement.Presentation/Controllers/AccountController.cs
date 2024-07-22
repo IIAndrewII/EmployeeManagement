@@ -103,6 +103,38 @@ namespace EmployeeManagement.Presentation.Controllers
             return Ok(new { message = "Logout successful" });
         }
 
+        [HttpPut("edit/{id}")]
+        [Authorize]
+        public async Task<IActionResult> EditUser(int id, [FromBody] UserUpdateDto model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await _userService.GetUserByIdAsync(id);
+
+                if (user == null)
+                {
+                    return NotFound(new { error = "User not found" });
+                }
+
+                user.Name = model.Name ?? user.Name;
+                user.PhoneNumber = model.PhoneNumber ?? user.PhoneNumber;
+                user.Email = model.Email ?? user.Email;
+                user.Address = model.Address ?? user.Address;
+                user.SubSectionId = model.SubSectionId ?? user.SubSectionId;
+
+                try
+                {
+                    await _userService.UpdateUserAsync(user);
+                    return Ok(new { message = "User updated successfully" });
+                }
+                catch (DbUpdateException ex)
+                {
+                    return BadRequest(new { error = ex.Message });
+                }
+            }
+            return BadRequest(ModelState);
+        }
+
         private bool UserAccountExists(int id)
         {
             return _userService.GetUserByIdAsync(id) != null;

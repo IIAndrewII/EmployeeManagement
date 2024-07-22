@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { SubSectionService } from '../../services/subsection.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-subsection',
@@ -15,7 +16,7 @@ export class SubsectionComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private subsectionService: SubSectionService) {}
+  constructor(private subsectionService: SubSectionService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadSubsections();
@@ -38,12 +39,20 @@ export class SubsectionComponent implements OnInit {
   }
 
   editSubsection(subsection: any): void {
-    // Implement edit functionality
+    this.router.navigate(['/edit-subsection', subsection.id]);
+  }
+
+  aboutSubsection(subsection: any): void {
+    this.router.navigate(['/about-subsection', subsection.id]);
   }
 
   deleteSubsection(id: number): void {
     this.subsectionService.deleteSubSection(id).subscribe(() => {
       this.loadSubsections();
     });
+  }
+
+  navigateToRegister(): void {
+    this.router.navigate(['/add-subsection']); 
   }
 }

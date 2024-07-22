@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { SectionService } from '../../services/section.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-section',
@@ -15,7 +16,7 @@ export class SectionComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private sectionService: SectionService) {}
+  constructor(private sectionService: SectionService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadSections();
@@ -38,12 +39,20 @@ export class SectionComponent implements OnInit {
   }
 
   editSection(section: any): void {
-    // Implement edit functionality
+    this.router.navigate(['/edit-section', section.id]);
+  }
+
+  aboutSection(section: any): void {
+    this.router.navigate(['/about-section', section.id]);
   }
 
   deleteSection(id: number): void {
     this.sectionService.deleteSection(id).subscribe(() => {
       this.loadSections();
     });
+  }
+
+  navigateToRegister(): void {
+    this.router.navigate(['/add-section']); 
   }
 }

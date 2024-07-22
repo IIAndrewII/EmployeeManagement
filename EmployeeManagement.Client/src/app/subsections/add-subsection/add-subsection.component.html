@@ -1,0 +1,13 @@
+<div class="register-container">
+    <form (ngSubmit)="addSubSection()">
+      <h2>Add Sub-Section</h2>
+      <div>
+        <label for="name">Name:</label>
+        <input id="name" [(ngModel)]="subSection.name" name="name" required>
+      </div>
+      <div>
+        <button type="submit">Add</button>
+      </div>
+    </form>
+  </div>
+  

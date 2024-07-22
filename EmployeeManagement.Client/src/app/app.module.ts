@@ -23,12 +23,25 @@ import { EmployeesComponent } from './pages/employees/employees.component';
 import { EditEmployeeComponent } from './pages/edit-employee/edit-employee.component';
 import { AboutEmployeeComponent } from './pages/about-employee/about-employee.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms'; // For ngModel
+import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
-
+import { EditDepartmentComponent } from './departments/edit-department/edit-department.component';
+import { AddDepartmentComponent } from './departments/add-department/add-department.component';
+import { AddSectionComponent } from './sections/add-section/add-section.component';
+import { EditSectionComponent } from './sections/edit-section/edit-section.component';
+import { AboutSectionComponent } from './sections/about-section/about-section.component';
+import { AddSubSectionComponent } from './subsections/add-subsection/add-subsection.component';
+import { EditSubSectionComponent } from './subsections/edit-subsection/edit-subsection.component';
+import { AboutSubSectionComponent } from './subsections/about-subsection/about-subsection.component';
 
 @NgModule({
   declarations: [
+    AddSectionComponent,
+    EditSectionComponent,
+    AboutSectionComponent,
+    AddSubSectionComponent,
+    EditSubSectionComponent,
+    AboutSubSectionComponent,
     AppComponent,
     LoginComponent,
     RegisterComponent,
@@ -39,7 +52,10 @@ import { MatCardModule } from '@angular/material/card';
     ToolbarComponent,
     EmployeesComponent,
     EditEmployeeComponent,
+    EditDepartmentComponent,
+    DepartmentComponent,
     AboutEmployeeComponent,
+    AddDepartmentComponent
   
   ],
   imports: [
@@ -60,6 +76,7 @@ import { MatCardModule } from '@angular/material/card';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
+
     MatButtonModule,
     BrowserAnimationsModule
 

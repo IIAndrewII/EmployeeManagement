@@ -32,7 +32,7 @@ namespace EmployeeManagement.Application.Services
 
         public async Task UpdateUserAsync(User user)
         {
-            _unitOfWork.Users.UpdateUserAsync(user);
+            await _unitOfWork.Users.UpdateUserAsync(user);
             await _unitOfWork.CompleteAsync();
         }
 

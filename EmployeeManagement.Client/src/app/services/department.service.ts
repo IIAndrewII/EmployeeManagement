@@ -36,4 +36,7 @@ export class DepartmentService {
   deleteDepartment(id: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
   }
+  getDepartment(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`, { headers: this.getHeaders() });
+  }
 }
