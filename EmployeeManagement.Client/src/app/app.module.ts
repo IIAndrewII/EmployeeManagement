@@ -12,27 +12,26 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './auth/login/login.component';
-import { RegisterComponent } from './auth/register/register.component';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { DepartmentComponent } from './pages/department/department.component';
-import { SectionComponent } from './pages/section/section.component';
-import { SubsectionComponent } from './pages/subsection/subsection.component';
-import { ToolbarComponent } from './shared/toolbar/toolbar.component';
-import { EmployeesComponent } from './pages/employees/employees.component';
-import { EditEmployeeComponent } from './pages/edit-employee/edit-employee.component';
-import { AboutEmployeeComponent } from './pages/about-employee/about-employee.component';
+import { LoginComponent } from './Components/auth/login/login.component';
+import { RegisterComponent } from './Components/auth/register/register.component';
+import { DepartmentComponent } from './Components/departments/department/department.component';
+import { SectionComponent } from './Components/sections/section/section.component';
+import { SubsectionComponent } from './Components/subsections/subsection/subsection.component';
+import { ToolbarComponent } from './Components/shared/toolbar/toolbar.component';
+import { EmployeesComponent } from './Components/employees/employees/employees.component';
+import { EditEmployeeComponent } from './Components/employees/edit-employee/edit-employee.component';
+import { AboutEmployeeComponent } from './Components/employees/about-employee/about-employee.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
-import { EditDepartmentComponent } from './departments/edit-department/edit-department.component';
-import { AddDepartmentComponent } from './departments/add-department/add-department.component';
-import { AddSectionComponent } from './sections/add-section/add-section.component';
-import { EditSectionComponent } from './sections/edit-section/edit-section.component';
-import { AboutSectionComponent } from './sections/about-section/about-section.component';
-import { AddSubSectionComponent } from './subsections/add-subsection/add-subsection.component';
-import { EditSubSectionComponent } from './subsections/edit-subsection/edit-subsection.component';
-import { AboutSubSectionComponent } from './subsections/about-subsection/about-subsection.component';
+import { EditDepartmentComponent } from './Components/departments/edit-department/edit-department.component';
+import { AddDepartmentComponent } from './Components/departments/add-department/add-department.component';
+import { AddSectionComponent } from './Components/sections/add-section/add-section.component';
+import { EditSectionComponent } from './Components/sections/edit-section/edit-section.component';
+import { AboutSectionComponent } from './Components/sections/about-section/about-section.component';
+import { AddSubSectionComponent } from './Components/subsections/add-subsection/add-subsection.component';
+import { EditSubSectionComponent } from './Components/subsections/edit-subsection/edit-subsection.component';
+import { AboutSubSectionComponent } from './Components/subsections/about-subsection/about-subsection.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +44,6 @@ import { AboutSubSectionComponent } from './subsections/about-subsection/about-s
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent,
     DepartmentComponent,
     SectionComponent,
     SubsectionComponent,
